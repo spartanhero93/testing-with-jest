@@ -8,6 +8,33 @@ toBeFalsy matches anything that an if statement treats as false
 
 const functions = require(`./functions`)
 
+// <=== runs before each test and after ===>//
+// beforeEach(() => initDatabase())
+// afterEach(() => closeDatabase())
+
+// <=== Runs before all tests and after ===>//
+// beforeAll(() => initDatabase())
+// afterAll(() => closeDatabase())
+
+// <=== Target specific tests to display===>//
+const nameCheck = () => console.log(`Checking name...`)
+
+describe(`Checking names`, () => {
+  beforeEach(() => nameCheck())
+
+  test(`User is Taiga`, () => {
+    const user = 'Taiga'
+    expect(user).toBe('Taiga')
+  })
+  test(`User is Ayase`, () => {
+    const user = 'Ayase'
+    expect(user).toBe('Ayase')
+  })
+})
+
+const initDatabase = () => console.log(`Database initialized...`)
+const closeDatabase = () => console.log(`Database closed...`)
+
 // <=== toBe ===>//
 test(`Adds 2 + 2 to equal 4`, () => {
   expect(functions.add(2, 2)).toBe(4)

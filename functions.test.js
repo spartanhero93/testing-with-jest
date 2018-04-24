@@ -38,3 +38,21 @@ test(`Should be under 9000`, () => {
   const power3 = 500
   expect(power1 + power2 + power3).toBeLessThan(9000)
 })
+
+// <=== RegEx ===>//
+test(`There is no I in team`, () => {
+  expect(`team`).not.toMatch(/[iI]/)
+})
+
+// <=== Arrays ===>//
+test(`Admin should be in usernames`, () => {
+  userNames = [`Isla`, `Taiga`, `admin`]
+  expect(userNames).toContain(`admin`)
+})
+
+// <=== Working with async data ===>//
+test(`User fetched name must be Leanne Graham`, async () => {
+  expect.assertions(1)
+  const data = await functions.fetchUser()
+  expect(data.name).toEqual(`Leanne Graham`)
+})

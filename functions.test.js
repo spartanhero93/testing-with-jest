@@ -1,0 +1,40 @@
+/*
+toBeNull matches only null
+toBeUndefined matches only undefined
+toBeDefined is the opposite of toBeUndefined
+toBeTruthy matches anything that an if statement treates as true
+toBeFalsy matches anything that an if statement treats as false
+*/
+
+const functions = require(`./functions`)
+
+// <=== toBe ===>//
+test(`Adds 2 + 2 to equal 4`, () => {
+  expect(functions.add(2, 2)).toBe(4)
+})
+
+// <=== toBeNull ===>//
+test(`Should be null`, () => {
+  expect(functions.isNull()).toBeNull()
+})
+
+// <=== toBeFalsy ===>//
+test(`Should be falsy`, () => {
+  expect(functions.checkValue('')).toBeFalsy()
+})
+
+// <=== toBeEqual ===>//
+test(`Should be Isla Chan object`, () => {
+  expect(functions.createUser()).toEqual({
+    firstName: 'Isla',
+    lastName: 'Chan'
+  })
+})
+
+// <=== Less than and greater than ===>//
+test(`Should be under 9000`, () => {
+  const power1 = 6000
+  const power2 = 2000
+  const power3 = 500
+  expect(power1 + power2 + power3).toBeLessThan(9000)
+})
